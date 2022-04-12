@@ -14,13 +14,17 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/products" element={<Products />}></Route>
+        <Route path="/products" element={
+          <RequireAuth>
+            <Products />
+          </RequireAuth>
+        }></Route>
         {/* <Route path="/orders" element={<Orders />}></Route> */}
         <Route path="/register" element={<Register />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path='/orders' element={
           <RequireAuth>
-            <Orders> </Orders>
+            <Orders />
           </RequireAuth>
         }> </Route>
       </Routes>
